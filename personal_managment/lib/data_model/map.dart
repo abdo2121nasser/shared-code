@@ -1,0 +1,40 @@
+Map<String,dynamic> data={
+  "data":{
+    "all_spent":1265,
+    "categories":[
+      {
+        "image":"images/foodimage.jpg",
+        "name":"Grociries",
+        "remind":21,
+        "total":400,
+        "list_details":[
+          {
+            "name":"tesco",
+            "price":8.99
+          },
+          {
+            "name":"tesco",
+            "price":8.99
+          }
+        ]
+      },
+      {
+        "image":"images/foodimage.jpg",
+        "name":"Grociries 333",
+        "remind":80,
+        "total":400,
+        "list_details":[
+          {
+            "name":"bred",
+            "price":10.22
+          },
+          {
+            "name":"playstation",
+            "price":80.99
+          }
+        ]
+      }
+
+    ]
+  }
+};
