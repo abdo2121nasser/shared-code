@@ -14,6 +14,7 @@ class ExamScreen extends StatefulWidget {
   int levelNumber;
 List<int> answers=[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
 ExamScreen({required this.levelNumber});
+
 static  String id='exam screen';
   @override
   State<ExamScreen> createState() => _ExamScreenState();
@@ -49,7 +50,8 @@ class _ExamScreenState extends State<ExamScreen> {
                 itemCount: 4,
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
-                      onTap: (){setState(() {
+                      onTap: (){
+                        setState(() {
                         var chooiseColor=fullQuestions[widget.levelNumber]![questionNumber].question;
                         if(chooiseColor.answer[0].flage==false &&chooiseColor.answer[1].flage==false && chooiseColor.answer[2].flage==false && chooiseColor.answer[3].flage==false)
                           fullQuestions[widget.levelNumber]![questionNumber].question.answer[index].flage=true;
@@ -74,13 +76,13 @@ class _ExamScreenState extends State<ExamScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              MyButton(text: 'Previous',data:buttonData[2], function: () {
+              MyButton(text: 'Previous',falgeColor: false,data:buttonData[2], function: () {
                 if(questionNumber>=1) {questionNumber--; numberTurns--;}
                 setState(() {
 
                 });
                 },),
-              MyButton(text:questionNumber==9? 'Submit':'Next' ,data:buttonData[3], function: () async {
+              MyButton(text:questionNumber==9? 'Submit':'Next' ,falgeColor: false,data:buttonData[3], function: () async {
 
                 setState(()  {
 
@@ -96,14 +98,14 @@ class _ExamScreenState extends State<ExamScreen> {
                     if(widget.answers[i]==fullQuestions[widget.levelNumber]![i].question.indexAnswer)
                       grade++;
                   }
-                  if(grade>5 && widget.levelNumber!=5)
+                  if(grade>=5 && widget.levelNumber!=5)
                     {
                       var count= await SqlDataBase().readData('SELECT Count(*) FROM levels');
                       var update= await SqlDataBase().updateData("UPDATE 'levels' SET 'lock' = 'true' WHERE id = ${widget.levelNumber+1}");
 
                     }
                   var read= await SqlDataBase().readData('SELECT * FROM levels');
-                  if(grade>int.parse(read[widget.levelNumber]['grade'])) {
+                  if(grade>int.parse(read[widget.levelNumber-1]['grade'])) {
                     var update = await SqlDataBase().updateData(
                         "UPDATE 'levels' SET 'grade' = $grade WHERE id = ${widget
                             .levelNumber}");
@@ -118,7 +120,6 @@ class _ExamScreenState extends State<ExamScreen> {
                       widget.answers[i]=-1;
                     }
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ResultScreen(grade: grade,levelNumber: widget.levelNumber)));
-
                 }
               },)
 

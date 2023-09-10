@@ -84,6 +84,7 @@ class _LevelsState extends State<Levels> {
                     mainAxisSpacing: 0),
                 itemBuilder: (_, index) => LevelButton(levelNumber: snapshot.data[index]['id'] ,lock: snapshot.data[index]['lock'],grade: snapshot.data[index]['grade'], ),
                 itemCount:itemNumber,
+
               );
             }
             else

@@ -68,7 +68,7 @@ class OpenningScreen extends StatelessWidget {
              ],
            ),
          ),
-          MyButton(text: 'Lets Play!',data: buttonData[0],function: () async {
+          MyButton(text: 'Lets Play!',falgeColor: false,data: buttonData[0],function: () async {
             var count= await SqlDataBase().readData('SELECT Count(*) FROM levels');
             if(count[0]['Count(*)']==0)
               {
@@ -82,25 +82,20 @@ class OpenningScreen extends StatelessWidget {
               }
             Navigator.pushNamed(context, Levels.id);
           },),
-          Container(
-            margin: EdgeInsets.only(bottom: 40.h,top: 10.h),
-            alignment: Alignment.center,
-              width: 275.w,
-              height:80.h,
-            decoration: BoxDecoration(
-              color: Colors.deepPurple,
-              borderRadius: BorderRadius.circular(20),
-            ),
-              child: MyButton(text: 'About',data: buttonData[1],function: (){
-                AwesomeDialog(titleTextStyle: TextStyle(color: Colors.black87),
-                    context: context,
-                    dialogType: DialogType.info,
-                    title: "this app for testing your self in project management field",
-                    alignment: Alignment.center,
-                    btnOkOnPress: (){}
-                ).show();
+          Padding(
+            padding:  EdgeInsets.only(bottom: 15.sp),
+            child: MyButton(text: 'About',falgeColor: true,data: buttonData[1],function: (){
+              AwesomeDialog(titleTextStyle: TextStyle(color: Colors.black87),
+                  context: context,
+                  dialogType: DialogType.info,
+                  title: "this app for testing your self in project management field\n"
+                      "the questions prepared by\nAbdalrahman Habib",
+                  alignment: Alignment.center,
+                  btnOkOnPress: (){}
+              ).show();
 
-              },)
+
+            },),
           )
         ],
       ),

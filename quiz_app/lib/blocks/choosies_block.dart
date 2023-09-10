@@ -29,8 +29,10 @@ bool flage;
             child: Text('${index+1}',
               style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold),),
           ),
-          Text(text,
-            style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold),),
+          Expanded(
+            child: Text(text,
+              style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold),),
+          ),
 
         ],
       ),
