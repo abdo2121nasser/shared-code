@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:travel_app/screens/detail_screen.dart';
 import 'package:travel_app/screens/user_screen.dart';
 import 'package:travel_app/screens/welcome_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,7 @@ class TravelApp extends StatelessWidget {
           builder: (_ , child) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-        home: UserScreen(),
+        home: WelcomeScreen(),
             );
           },
 

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/blocks/city_place_block.dart';
 import 'package:travel_app/cubits/travel_cubit.dart';
 import 'package:travel_app/cubits/travel_cubit.dart';
+import 'package:travel_app/screens/detail_screen.dart';
 
 
 class ExploreCitiesBlock extends StatelessWidget {
@@ -20,12 +21,15 @@ class ExploreCitiesBlock extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Explore Cities',
-              style: TextStyle(fontSize: 23.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),),
             Padding(
-              padding:  EdgeInsets.only(top: 10.h),
+              padding: EdgeInsets.only(top: 5.h),
+              child: Text('Explore Cities',
+                style: TextStyle(fontSize: 23.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),),
+            ),
+            Padding(
+              padding:  EdgeInsets.only(top: 5.h),
               child: SizedBox(
                 height: 30.h,
                 child: ListView(
@@ -74,6 +78,9 @@ class ExploreCitiesBlock extends StatelessWidget {
                   itemBuilder: (context, index) => InkWell(
                       onTap: ()
                       {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => DetailScreen(index: index,)));
+
                       },
                       child: CityPlaceBlock(index: index,)
                   ),

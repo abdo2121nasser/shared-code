@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meta/meta.dart';
+import 'package:travel_app/clip_path/tringle_clip_path.dart';
 import 'package:travel_app/models/travel_model.dart';
 
 import '../data_models/travel_data_model.dart';
@@ -37,14 +38,25 @@ emit(ChangeColorIndexState());
  }
 Widget getRoundIcon({required IconData icon,required int index})
  {
-   return  bottonNavigationBarIndex==index? Container(
-     padding: EdgeInsets.all(5.sp),
-     alignment: Alignment.center,
-     decoration: BoxDecoration(
-       shape: BoxShape.circle,
-       color: Color(0xffc05e2b)
-     ),
-     child: Icon(icon,size: 20.sp,),
+   return  bottonNavigationBarIndex==index? Column(
+     children: [
+       Container(
+         padding: EdgeInsets.all(5.sp),
+         alignment: Alignment.center,
+         decoration: const BoxDecoration(
+           shape: BoxShape.circle,
+           color:  Color(0xffc05e2b)
+         ),
+         child: Icon(icon,size: 20.sp,),
+       ),
+       ClipPath(
+         clipper: Tringle(),
+         child: Container(
+           width: 10.w,height: 10.h,
+           color:const  Color(0xffc05e2b)
+         ),
+       )
+     ],
    ):Icon(icon,size: 25.sp,);
 
  }

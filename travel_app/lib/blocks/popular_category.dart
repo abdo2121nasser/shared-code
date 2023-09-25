@@ -26,11 +26,11 @@ class PopularCategory extends StatelessWidget {
               Text('Popular Categories',
                 style: TextStyle(fontSize: 23.sp, fontWeight: FontWeight.bold),),
               SizedBox(
-                height: 80.h,
+                height: 60.h,
                 child: ListView.separated(
                   padding: EdgeInsets.symmetric(horizontal: 20.sp),
                   scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => PopularCategoryicon(index: index),
+                    itemBuilder: (context, index) => PopularCategoryicon(index: index,flage: true,),
                     separatorBuilder: (context, index) => SizedBox(width: 30.sp,) ,
                     itemCount: cubit2.popularrDataModel.data!.length!),
               )

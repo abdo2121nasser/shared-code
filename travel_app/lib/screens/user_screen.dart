@@ -94,27 +94,32 @@ body: Column(
 PopularCategory()
   ],
 ),
-      bottomNavigationBar:  BottomNavigationBar(
+      bottomNavigationBar:  SizedBox(height:
+        70.h,
+        child: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          onTap: (index) => cubit.setBottonBarIndex(index),
+          currentIndex: cubit.getBottombarIndex(),
+          items:  [
+            BottomNavigationBarItem(icon:cubit.getRoundIcon(icon: Icons.home,index: 0)
+  ,backgroundColor:const Color(0xffecddcc),label:'hom'
 
-        onTap: (index) => cubit.setBottonBarIndex(index),
-        currentIndex: cubit.getBottombarIndex(),
-        items:  [
-          BottomNavigationBarItem(icon:/* cubit.bottonNavigationBarIndex,*/cubit.getRoundIcon(icon: Icons.home,index: 0)
-  ,label: '',backgroundColor:const Color(0xffecddcc),
 
-          ),
-          BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.circle_outlined,index: 1),
-              label: '',backgroundColor:const Color(0xffecddcc),
-          ),
-          BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.apps,index: 2),
-              label: '',backgroundColor:const Color(0xffecddcc),
-          ),
+            ),
+            BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.circle_outlined,index: 1),
+                label:'',backgroundColor:const Color(0xffecddcc),
+            ),
+            BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.apps,index: 2),
+                label: '',backgroundColor:const Color(0xffecddcc),
+            ),
     BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.favorite_border,index: 3),
-        label: '',backgroundColor:const Color(0xffecddcc),),
-          BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.person_2_outlined,index: 4),label: ''
+          label: '',backgroundColor:const Color(0xffecddcc),),
+            BottomNavigationBarItem(icon: cubit.getRoundIcon(icon: Icons.person_2_outlined,index: 4),label: ''
     ,backgroundColor:const Color(0xffecddcc),)
 
-        ],
+          ],
+        ),
       ),
     );
   },

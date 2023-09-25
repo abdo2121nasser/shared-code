@@ -28,7 +28,8 @@ CityPlaceBlock({required this.index});
             //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
-               children:[  Container(
+               children:[
+                 Container(
                   width: 130,height: 130,
                   decoration: BoxDecoration(
                       boxShadow: [
@@ -39,7 +40,7 @@ CityPlaceBlock({required this.index});
                           offset: const Offset(0, 2), // changes position of shadow
                         ),
                       ],
-                    color: Colors.red,
+                    color: Colors.grey,
                     borderRadius: BorderRadius.circular(20.r),
                       image: DecorationImage(
                           image: Image.network(
@@ -69,7 +70,7 @@ CityPlaceBlock({required this.index});
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(cubit.dataModel.data![cubit.presentPlaceIndex].placeData![index].country!,
+                        Text(cubit.dataModel.data![cubit.presentPlaceIndex].placeData![index].placeName!,
                         style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
                         SizedBox(
                           child: Row(
@@ -83,7 +84,7 @@ CityPlaceBlock({required this.index});
                       ],
                     ),
                     Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
                           child: Row(

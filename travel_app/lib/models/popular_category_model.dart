@@ -1,7 +1,8 @@
 class PopularModel {
   List<Data>? data;
+  List<Data>? feature;
 
-  PopularModel({this.data});
+  PopularModel({this.data, this.feature});
 
   PopularModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
@@ -10,12 +11,21 @@ class PopularModel {
         data!.add(new Data.fromJson(v));
       });
     }
+    if (json['feature'] != null) {
+      feature = <Data>[];
+      json['feature'].forEach((v) {
+        feature!.add(new Data.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
+    if (this.feature != null) {
+      data['feature'] = this.feature!.map((v) => v.toJson()).toList();
     }
     return data;
   }
